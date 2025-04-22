@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    name: java-web-page-service
+  name: spring-controller
+  namespace: java-web-page-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: java-web-page-service
+  template:
+    metadata:
+      labels:
+        name: java-web-page-service
+    spec:
+      imagePullSecrets:
+      - name: dockerreposecret
+      containers:
+      - image: pachaanilkumar/java-web-page-service-mongo-docker:9a2c2dc
+        name: java-web-page-service
+        ports:
+        - name: java-web
+          containerPort: 8080
+---
+# Node Port Service
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    name: java-web-page-service
+  name: java-web-page-service
+  namespace: java-web-page-service
+spec:
+  type: NodePort
+  ports:
+    - port: 8080
+      targetPort: 8080
+  selector:
+    name: java-web-page-service
