@@ -3,8 +3,8 @@ kind: Deployment
 metadata:
   labels:
     name: java-web-page-service
-  name: spring-controller
-  namespace: java-web-page-service
+  name: java-web-page-service
+  namespace: spring-controller
 spec:
   replicas: 1
   selector:
@@ -31,7 +31,7 @@ metadata:
   labels:
     name: java-web-page-service
   name: java-web-page-service
-  namespace: java-web-page-service
+  namespace: spring-controller
 spec:
   type: NodePort
   ports:
