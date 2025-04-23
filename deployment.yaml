@@ -18,7 +18,7 @@ spec:
       imagePullSecrets:
       - name: dockerreposecret
       containers:
-      - image: pachaanilkumar/java-web-page-service:ef082bd
+      - image: pachaanilkumar/java-web-page-service:196b7ad
         name: java-web-page-service
         ports:
         - name: java-web
