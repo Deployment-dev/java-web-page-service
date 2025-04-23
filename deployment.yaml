@@ -22,7 +22,7 @@ spec:
         name: java-web-page-service
         ports:
         - name: java-web
-          containerPort: 8080
+          containerPort: 8085
 ---
 # Node Port Service
 apiVersion: v1
@@ -35,7 +35,7 @@ metadata:
 spec:
   type: NodePort
   ports:
-    - port: 8080
-      targetPort: 8080
+    - port: 8085
+      targetPort: 8085
   selector:
     name: java-web-page-service
